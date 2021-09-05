@@ -1,0 +1,14 @@
+To achieve a working databas follow below instructions:
+
+install docker
+
+In one command prompt: docker run --name docker_sql -p 8080:3306 -e MYSQL_ROOT_PASSWORD=taif -it mysql
+
+In second command prompt:
+	docker exec -it docker_sql bash
+	mysql -u root -ptaif
+	alter user root identified with mysql_native_password by 'taif';
+	flush privileges;
+	create database userDB
+	use userDB
+	create table user (id int not null, name text, primary key(id));

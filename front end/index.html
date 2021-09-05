@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>MySQL using Docker</title>
+        <script
+			  src="https://code.jquery.com/jquery-3.6.0.min.js"
+			  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+			  crossorigin="anonymous">
+        </script>
+
+        <script>
+            $(document).ready(function(){
+                $(".insert").on("click" , function(){
+                    $.post("http://localhost:7171/insert", 
+                    {
+                        id : $(".cid").val(),
+                        name : $(".cname").val()
+                    } 
+                    ,function(data, status) {
+                        $(".status").html(data.msg)
+                    })
+                })
+
+                $(".update").on("click" , function(){
+                    $.post("http://localhost:7171/update", 
+                    {
+                        id : $(".cid").val(),
+                        name : $(".cname").val()
+                    } 
+                    ,function(data, status) {
+                        $(".status").html(data.msg)
+                    })
+                })
+
+                $(".delete").on("click" , function(){
+                    $.post("http://localhost:7171/delete", 
+                    {
+                        id : $(".cid").val(),
+                        name : $(".cname").val()
+                    } 
+                    ,function(data, status) {
+                        $(".status").html(data.msg)
+                    })
+                })
+            })
+
+        </script>
+    </head>
+
+    <body>
+        <h1> Demo Web App </h1>
+
+        <form> 
+            <label for = "_id"> ID: </label>
+            <input type = "text" id = "_id" class = "cid"><br>
+
+            <label for = "_name"> Name: </label>
+            <input type = "text" id = "_name" class = "cname"><br>
+        </form>
+
+        <br>
+
+        <button type = "button" class = "insert"> Insert </button>
+        <button type = "button" class = "update"> Update </button>
+        <button type = "button" class = "delete"> Delete </button>
+
+        <p class= "status"></p>
+    </body>
+</html>

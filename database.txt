@@ -1,4 +1,4 @@
-To achieve a working databas follow below instructions:
+To achieve a working database follow below instructions:
 
 install docker
 
